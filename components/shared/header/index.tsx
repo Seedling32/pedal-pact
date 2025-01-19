@@ -3,6 +3,7 @@ import { UserRound, UserRoundPlus } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { APP_NAME } from '@/lib/constants';
+import ModeToggle from './mode-toggle';
 
 const Header = () => {
   return (
@@ -23,6 +24,7 @@ const Header = () => {
         </div>
         <div className="flex space-x-2">
           <div className="flex items-center space-x-3 mr-2 text-white">
+            <ModeToggle />
             <Link href="/rides">Rides</Link>
             <Link href="/about-us">About Us</Link>
             <Link href="/contact">Contact</Link>
