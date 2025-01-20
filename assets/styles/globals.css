@@ -4,7 +4,7 @@
 
 @layer utilities {
   .wrapper {
-    @apply max-w-7xl lg:mx-auto p-5 md:px-10 w-full;
+    @apply max-w-7xl lg:mx-auto px-5 md:px-10 w-full;
   }
 
   .flex-start {
@@ -19,7 +19,7 @@
   }
 
   .h1-bold {
-    @apply font-bold text-3xl lg:text-4xl;
+    @apply font-bold text-4xl lg:text-5xl;
   }
 
   .h2-bold {

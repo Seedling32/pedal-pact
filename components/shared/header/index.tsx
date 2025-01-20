@@ -5,8 +5,8 @@ import Menu from './menu';
 
 const Header = () => {
   return (
-    <header className="bg-slate-800 w-full border-b">
-      <div className="wrapper flex-between">
+    <header className="bg-slate-800 w-full">
+      <div className="wrapper flex-between py-5">
         <div className="flex-start">
           <Link href="/" className="flex-start">
             <Image
