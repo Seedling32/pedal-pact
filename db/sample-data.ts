@@ -3,85 +3,142 @@ const sampleData = {
     {
       id: 1,
       title: 'Blue Ridge Parkway Scenic Ride',
+      slug: 'blue-ridge-parkway-scenic-ride',
       date: new Date('2025-04-15T08:30:00Z'),
-      location: 1, // Assuming location ID for Asheville
+      location: 1,
+      mileage: 25,
       route_points: JSON.stringify([
-        { lat: 35.5951, lng: -82.5515 }, // Downtown Asheville
-        { lat: 35.5647, lng: -82.5272 }, // Blue Ridge Parkway Entrance
-        { lat: 35.4985, lng: -82.5066 }, // Pisgah National Forest
+        { lat: 35.5951, lng: -82.5515 },
+        { lat: 35.5647, lng: -82.5272 },
+        { lat: 35.5412, lng: -82.5025 },
+        { lat: 35.5236, lng: -82.4897 },
+        { lat: 35.4985, lng: -82.5066 },
       ]),
-      description: 'This is a fun Blue Ridge Parkway scenic route for all ages.',
-      created_by: 1, // Assuming an admin user ID
+      images: ['/images/portrait-home.png'],
+      short_description: 'A fun Blue Ridge Parkway scenic route for all ages.',
+      long_description:
+        'This scenic ride along the iconic Blue Ridge Parkway offers breathtaking views of the Appalachian Mountains. Riders will experience gentle climbs and thrilling descents while soaking in the natural beauty of Western North Carolina. Perfect for cyclists of all levels.',
+      created_by: 1,
       date_created: new Date(),
     },
     {
       id: 2,
       title: 'French Broad River Greenway Loop',
+      slug: 'french-broad-river-greenway-loop',
       date: new Date('2025-05-10T09:00:00Z'),
       location: 1,
+      mileage: 12,
       route_points: JSON.stringify([
-        { lat: 35.5966, lng: -82.5735 }, // Carrier Park
-        { lat: 35.6112, lng: -82.5661 }, // River Arts District
-        { lat: 35.5951, lng: -82.5515 }, // Downtown Asheville
+        { lat: 35.5966, lng: -82.5735 },
+        { lat: 35.6112, lng: -82.5661 },
+        { lat: 35.62, lng: -82.5605 },
+        { lat: 35.6051, lng: -82.5452 },
+        { lat: 35.5951, lng: -82.5515 },
       ]),
-      description: 'This route is flat and follows the river. Perfect for a family cruise.',
+      images: ['/images/portrait-home.png'],
+      short_description: 'A flat, family-friendly route along the river.',
+      long_description:
+        'This loop follows the French Broad River, offering a relaxing ride with scenic river views, local parks, and minimal elevation gain. Ideal for beginners and families looking for a leisurely outing.',
       created_by: 1,
       date_created: new Date(),
     },
     {
       id: 3,
       title: 'Bent Creek Forest Trail Adventure',
+      slug: 'bent-creek-forest-trail-adventure',
       date: new Date('2025-06-01T07:45:00Z'),
       location: 1,
+      mileage: 18,
       route_points: JSON.stringify([
-        { lat: 35.4979, lng: -82.6083 }, // Bent Creek Parking Lot
-        { lat: 35.4875, lng: -82.5951 }, // Bent Creek Gap Road
-        { lat: 35.5048, lng: -82.5841 }, // Lake Powhatan
+        { lat: 35.4979, lng: -82.6083 },
+        { lat: 35.4875, lng: -82.5951 },
+        { lat: 35.4821, lng: -82.5825 },
+        { lat: 35.4947, lng: -82.5701 },
+        { lat: 35.5048, lng: -82.5841 },
       ]),
-      description: 'This is a fun short bent creek trail.',
+      images: ['/images/portrait-home.png'],
+      short_description: 'An exciting forest trail ride in Bent Creek.',
+      long_description:
+        'This adventurous trail ride in Bent Creek offers a variety of terrains, from rolling hills to technical sections. Riders will enjoy forested paths and scenic views, making it a great option for intermediate mountain bikers.',
       created_by: 1,
       date_created: new Date(),
     },
     {
       id: 4,
       title: 'Mount Mitchell Challenge',
+      slug: 'mount-mitchell-challenge',
       date: new Date('2025-07-20T06:00:00Z'),
       location: 1,
+      mileage: 35,
       route_points: JSON.stringify([
-        { lat: 35.6184, lng: -82.3057 }, // Blue Ridge Parkway Start
-        { lat: 35.7596, lng: -82.2876 }, // Craggy Gardens
-        { lat: 35.7596, lng: -82.265 }, // Mount Mitchell Summit
+        { lat: 35.6184, lng: -82.3057 },
+        { lat: 35.67, lng: -82.2901 },
+        { lat: 35.7123, lng: -82.2765 },
+        { lat: 35.7596, lng: -82.2876 },
+        { lat: 35.7596, lng: -82.265 },
       ]),
-      description: 'This is a short but very challenging ride!',
+      images: ['/images/portrait-home.png'],
+      short_description: 'A challenging climb to the highest peak in the Eastern US.',
+      long_description:
+        'With significant elevation gain and switchbacks, this ride is for experienced cyclists. The route winds through beautiful landscapes and ends at the summit of Mount Mitchell, providing rewarding panoramic views.',
       created_by: 2,
       date_created: new Date(),
     },
     {
       id: 5,
-      title: 'Downtown to Biltmore Estate Tour',
-      date: new Date('2025-08-05T10:00:00Z'),
+      title: 'Hickory Nut Gorge Ride',
+      slug: 'hickory-nut-gorge-ride',
+      date: new Date('2025-10-10T08:30:00Z'),
       location: 1,
+      mileage: 40,
       route_points: JSON.stringify([
-        { lat: 35.5951, lng: -82.5515 }, // Downtown Asheville
-        { lat: 35.5652, lng: -82.5412 }, // Biltmore Village
-        { lat: 35.5402, lng: -82.5528 }, // Biltmore Estate
+        { lat: 35.44, lng: -82.22 },
+        { lat: 35.4601, lng: -82.25 },
+        { lat: 35.4802, lng: -82.275 },
       ]),
-      description: 'If you have never been to Asheville consider this ride to see the city.',
-      created_by: 2,
+      images: ['/images/portrait-home.png'],
+      short_description: 'A scenic ride through Hickory Nut Gorge.',
+      long_description:
+        'Cyclists will enjoy winding roads through Hickory Nut Gorge, with views of Chimney Rock and Lake Lure. The moderate climbs and rolling terrain make it a fantastic all-day ride.',
+      created_by: 3,
       date_created: new Date(),
     },
     {
       id: 6,
-      title: 'River Road Gravel Ride',
-      date: new Date('2025-09-15T07:00:00Z'),
+      title: 'Reems Creek Rolling Hills Ride',
+      slug: 'reems-creek-rolling-hills-ride',
+      date: new Date('2025-11-05T09:00:00Z'),
       location: 1,
+      mileage: 28,
       route_points: JSON.stringify([
-        { lat: 35.6014, lng: -82.5686 }, // French Broad River Park
-        { lat: 35.6154, lng: -82.5963 }, // Gravel Path Entry
-        { lat: 35.6305, lng: -82.6127 }, // Riverside Drive
+        { lat: 35.7001, lng: -82.48 },
+        { lat: 35.7202, lng: -82.495 },
+        { lat: 35.7403, lng: -82.51 },
       ]),
-      description: 'Short and fun gravel rip by the river.',
+      images: ['/images/portrait-home.png'],
+      short_description: 'A rolling hill ride through Reems Creek valley.',
+      long_description:
+        'Riders will traverse rolling hills with pastoral views of Reems Creek Valley. The route features quiet roads and a few steep climbs, perfect for intermediate cyclists.',
       created_by: 3,
+      date_created: new Date(),
+    },
+    {
+      id: 7,
+      title: 'Pisgah National Forest Epic',
+      slug: 'pisgah-national-forest-epic',
+      date: new Date('2025-12-01T07:00:00Z'),
+      location: 1,
+      mileage: 50,
+      route_points: JSON.stringify([
+        { lat: 35.35, lng: -82.75 },
+        { lat: 35.38, lng: -82.77 },
+        { lat: 35.4, lng: -82.79 },
+      ]),
+      images: ['/images/portrait-home.png'],
+      short_description: 'An epic ride through Pisgah National Forest.',
+      long_description:
+        'This challenging route takes riders through the heart of Pisgah National Forest, with steep climbs, technical descents, and breathtaking mountain views. Perfect for experienced cyclists seeking an adventure.',
+      created_by: 4,
       date_created: new Date(),
     },
   ],

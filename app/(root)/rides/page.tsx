@@ -4,7 +4,7 @@ import sampleData from '@/db/sample-data';
 const RidesPage = () => {
   return (
     <>
-      <RideList data={sampleData.rides} title="Explore our rides" limit={6} />
+      <RideList data={sampleData.rides} title="Explore our rides" limit={8} />
     </>
   );
 };
