@@ -7,7 +7,7 @@ const HomePage = () => {
         <h1 className="h1-bold">Let&apos;s ride bikes!</h1>
         <h2 className="text-2xl">Find local routes and get out there.</h2>
       </div>
-      <div className="flex pt-8">
+      <div className="flex p-8">
         <Image
           src="/images/portrait-home.png"
           width={400}

@@ -150,8 +150,8 @@ const CreateRide = () => {
             disabled={loading}
             style={{
               position: 'absolute',
-              top: '20px',
-              left: '20px',
+              bottom: '20px',
+              right: '80px',
               padding: '10px 20px',
               background: loading ? 'gray' : 'blue',
               color: 'white',
@@ -163,16 +163,7 @@ const CreateRide = () => {
             {loading ? 'Saving...' : 'Save Route'}
           </button>
         </div>
-        <h2>Saved Routes</h2>
-        <ul>
-          {savedRoutes.map((route) => (
-            <li key={route.id}>
-              {route.name} - {route.shortDescription}
-            </li>
-          ))}
-        </ul>
       </div>
-      <Link href="/routes">Saved routes</Link>
     </LoadScript>
   );
 };
