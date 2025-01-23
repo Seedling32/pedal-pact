@@ -8,11 +8,9 @@ const RideList = ({ data, title, limit }: { data: any; title?: string; limit?: n
       <h2 className="h2-bold mb-4">{title}</h2>
       {data.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {limitedData
-            .filter((ride: any) => new Date(ride.date) > new Date())
-            .map((ride: any) => (
-              <RideCard key={ride.slug} ride={ride} />
-            ))}
+          {limitedData.map((ride: any) => (
+            <RideCard key={ride.name} ride={ride} />
+          ))}
         </div>
       ) : (
         <div>

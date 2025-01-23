@@ -6,17 +6,23 @@ const RideCard = ({ ride }: { ride: any }) => {
   return (
     <Card className="flex flex-col w-full max-w-sm">
       <CardHeader className="p-0 items-center">
-        <Link href={`/rides/${ride.slug}`} className="pt-4">
-          <Image src={ride.images[0]} alt={ride.title} height={300} width={300} priority={true} />
+        <Link href={`/rides/${ride.id}`} className="pt-4">
+          <Image
+            src={ride.staticMapUrl}
+            alt={ride.shortDescription}
+            height={300}
+            width={300}
+            priority={true}
+          />
         </Link>
       </CardHeader>
       <CardContent className="grow flex flex-col justify-between p-4">
-        <Link href={`/rides/${ride.slug}`}>
-          <h3 className="h3-bold">{ride.title}</h3>
-          <p className="text-m">{ride.short_description}</p>
+        <Link href={`/rides/${ride.id}`}>
+          <h3 className="h3-bold">{ride.shortDescription}</h3>
+          <p className="text-m">{ride.longDescription}</p>
         </Link>
         <div>
-          <p>{ride.mileage} Miles</p>
+          <p>Miles</p>
         </div>
       </CardContent>
     </Card>
