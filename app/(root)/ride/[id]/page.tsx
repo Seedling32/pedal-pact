@@ -13,7 +13,7 @@ export default async function RideDetails({ params }: { params: { id: string } }
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">{ride.name}</h1>
+      <h1 className="text-3xl font-bold mb-4">{ride.shortDescription}</h1>
       <p className="text-lg mb-4">{ride.longDescription}</p>
       <DynamicMap path={parsedPath} />
     </div>
