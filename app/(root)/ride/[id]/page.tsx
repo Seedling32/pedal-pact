@@ -15,7 +15,7 @@ export default async function RideDetails({ params }: { params: { id: string } }
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold mb-4">{ride.shortDescription}</h1>
       <p className="text-lg mb-4">{ride.longDescription}</p>
-      <DynamicMap path={parsedPath} />
+      <DynamicMap path={parsedPath} zoom={15} />
     </div>
   );
 }
