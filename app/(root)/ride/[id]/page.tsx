@@ -1,8 +1,10 @@
-import { getRideById } from '@/lib/actions/ride.actions';
+import { getRideByDescription } from '@/lib/actions/ride.actions';
 import DynamicMap from '@/components/shared/map/DynamicMap';
 
-export default async function RideDetails({ params }: { params: { id: string } }) {
-  const ride = await getRideById(params.id);
+export default async function RideDetails(props: { params: Promise<{ id: string }> }) {
+  const { id } = await props.params;
+
+  const ride = await getRideByDescription(id);
 
   if (!ride) {
     return <p>Ride not found.</p>;

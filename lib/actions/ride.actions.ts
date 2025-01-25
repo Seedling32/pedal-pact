@@ -16,26 +16,10 @@ export async function getLatestRides() {
   return data;
 }
 
-// Get ride by ID
-export async function getRideById(id: string) {
+export async function getRideByDescription(id: string) {
   const prisma = new PrismaClient();
 
-  try {
-    const ride = await prisma.route.findUnique({
-      where: {
-        id: id,
-      },
-    });
-
-    if (!ride) {
-      throw new Error('Ride not found');
-    }
-
-    return ride;
-  } catch (error) {
-    console.error('Error fetching ride:', error);
-    throw error;
-  } finally {
-    await prisma.$disconnect();
-  }
+  return await prisma.route.findFirst({
+    where: { id: id },
+  });
 }
