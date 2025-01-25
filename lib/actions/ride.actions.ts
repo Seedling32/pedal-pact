@@ -16,7 +16,7 @@ export async function getLatestRides() {
   return data;
 }
 
-export async function getRideByDescription(id: string) {
+export async function getRideById(id: string) {
   const prisma = new PrismaClient();
 
   return await prisma.route.findFirst({
