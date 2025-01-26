@@ -10,12 +10,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
-      <div className="flex flex-col h-screen">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </div>
-    </LoadScript>
+    <div className="flex flex-col h-screen">
+      <Header />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
   );
 }

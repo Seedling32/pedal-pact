@@ -10,8 +10,8 @@ const HomePage = () => {
       <div className="flex p-8">
         <Image
           src="/images/portrait-home.png"
-          width={400}
-          height={600}
+          width={387}
+          height={643}
           alt="Sunrise bike ride with friends."
         />
       </div>
