@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { GoogleMap, Polyline } from '@react-google-maps/api';
-import Link from 'next/link';
 
 const mapContainerStyle = {
   width: '100%',
@@ -69,36 +68,6 @@ const CreateRide = () => {
       alert('An error occurred while saving the route.');
     } finally {
       setLoading(false);
-    }
-  };
-
-  const fetchRoutes = async () => {
-    try {
-      const response = await fetch('/api/routes/get');
-      if (response.ok) {
-        const data = await response.json();
-        setSavedRoutes(
-          data.map(
-            (route: {
-              id: number;
-              name: string;
-              path: string;
-              shortDescription: string;
-              longDescription: string;
-            }) => ({
-              id: route.id,
-              name: route.name,
-              path: JSON.parse(route.path),
-              shortDescription: route.shortDescription,
-              longDescription: route.longDescription,
-            }),
-          ),
-        );
-      } else {
-        console.error('Failed to fetch routes.');
-      }
-    } catch (error) {
-      console.error('Error fetching routes:', error);
     }
   };
 
