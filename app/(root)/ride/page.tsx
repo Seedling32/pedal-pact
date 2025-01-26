@@ -3,7 +3,6 @@ import { getLatestRides } from '@/lib/actions/ride.actions';
 
 const RidesPage = async () => {
   const latestRides = await getLatestRides();
-  console.log(latestRides);
 
   return (
     <>
