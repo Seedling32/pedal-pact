@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Ride } from '@/types';
 
-const RideCard = ({ ride }: { ride: any }) => {
+const RideCard = ({ ride }: { ride: Ride }) => {
   return (
     <Card className="flex flex-col w-full max-w-sm">
       <CardHeader className="p-0 items-center">
