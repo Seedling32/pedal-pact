@@ -21,7 +21,7 @@ type Route = {
 
 const CreateRide = () => {
   const [path, setPath] = useState<{ lat: number; lng: number }[]>([]);
-  const [savedRoutes, setSavedRoutes] = useState<Route[]>([]);
+  const [savedRoutes] = useState<Route[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [shortDescription, setShortDescription] = useState('');
   const [longDescription, setLongDescription] = useState('');
