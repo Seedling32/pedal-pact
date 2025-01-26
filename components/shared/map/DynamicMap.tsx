@@ -1,6 +1,6 @@
 'use client';
 
-import { GoogleMap, LoadScript, Polyline } from '@react-google-maps/api';
+import { GoogleMap, Polyline } from '@react-google-maps/api';
 
 const mapContainerStyle = {
   width: '100%',
@@ -24,23 +24,21 @@ const DynamicMap = ({
   onMapClick,
 }: DynamicMapProps) => {
   return (
-    <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        center={path.length > 0 ? path[0] : defaultCenter}
-        zoom={zoom}
-        onClick={onMapClick}
-      >
-        <Polyline path={path} options={{ strokeColor: '#FF0000', strokeWeight: 4 }} />
-        {savedRoutes.map((route) => (
-          <Polyline
-            key={route.id}
-            path={route.path}
-            options={{ strokeColor: '#00FF00', strokeWeight: 4 }}
-          />
-        ))}
-      </GoogleMap>
-    </LoadScript>
+    <GoogleMap
+      mapContainerStyle={mapContainerStyle}
+      center={path.length > 0 ? path[0] : defaultCenter}
+      zoom={zoom}
+      onClick={onMapClick}
+    >
+      <Polyline path={path} options={{ strokeColor: '#FF0000', strokeWeight: 4 }} />
+      {savedRoutes.map((route) => (
+        <Polyline
+          key={route.id}
+          path={route.path}
+          options={{ strokeColor: '#00FF00', strokeWeight: 4 }}
+        />
+      ))}
+    </GoogleMap>
   );
 };
 
