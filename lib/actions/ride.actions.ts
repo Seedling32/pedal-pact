@@ -1,11 +1,9 @@
 'use server';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/db/prisma';
 
 // Get rides
 
 export async function getLatestRides() {
-  const prisma = new PrismaClient();
-
   const data = await prisma.route.findMany({
     take: 8,
     orderBy: {
@@ -17,8 +15,6 @@ export async function getLatestRides() {
 }
 
 export async function getRideById(id: string) {
-  const prisma = new PrismaClient();
-
   return await prisma.route.findFirst({
     where: { id: id },
   });
