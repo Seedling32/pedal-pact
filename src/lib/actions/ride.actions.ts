@@ -1,5 +1,5 @@
 'use server';
-import { prisma } from '@/db/prisma';
+import { prisma } from '@/src/db/prisma';
 
 // Get rides
 

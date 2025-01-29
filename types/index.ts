@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { createRideSchema } from '@/lib/validators';
+import { createRideSchema } from '@/src/lib/validators';
 
 export type Ride = z.infer<typeof createRideSchema> & {
   id: string;

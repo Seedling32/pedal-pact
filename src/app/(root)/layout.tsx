@@ -1,7 +1,7 @@
 'use client';
 
-import Header from '@/components/shared/header';
-import Footer from '@/components/footer';
+import Header from '@/src/components/shared/header';
+import Footer from '@/src/components/footer';
 import { LoadScript } from '@react-google-maps/api';
 
 export default function RootLayout({

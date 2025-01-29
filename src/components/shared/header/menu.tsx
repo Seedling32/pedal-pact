@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import ModeToggle from './mode-toggle';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/src/components/ui/button';
 import { EllipsisVertical, UserRound, UserRoundPlus } from 'lucide-react';
 import {
   Sheet,
@@ -8,7 +8,7 @@ import {
   SheetDescription,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet';
+} from '@/src/components/ui/sheet';
 
 const Menu = () => {
   return (
@@ -38,7 +38,7 @@ const Menu = () => {
       <nav className="md:hidden">
         <Sheet>
           <SheetTrigger className="align-middle">
-            <EllipsisVertical />
+            <EllipsisVertical className="text-yellow-500" />
           </SheetTrigger>
           <SheetContent className="flex flex-col items-start">
             <SheetTitle>Menu</SheetTitle>

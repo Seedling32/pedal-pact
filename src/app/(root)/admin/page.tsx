@@ -1,6 +1,6 @@
 'use client';
 
-import CreateRide from '@/components/shared/map/CreateRide';
+import CreateRide from '@/src/components/shared/map/CreateRide';
 
 const AdminPage = () => {
   return (

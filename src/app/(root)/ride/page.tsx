@@ -1,5 +1,5 @@
-import RideList from '@/components/shared/rides/ride-list';
-import { getLatestRides } from '@/lib/actions/ride.actions';
+import RideList from '@/src/components/shared/rides/ride-list';
+import { getLatestRides } from '@/src/lib/actions/ride.actions';
 
 const RidesPage = async () => {
   const latestRides = await getLatestRides();

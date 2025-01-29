@@ -1,5 +1,5 @@
-import { getRideById } from '@/lib/actions/ride.actions';
-import DynamicMap from '@/components/shared/map/DynamicMap';
+import { getRideById } from '@/src/lib/actions/ride.actions';
+import DynamicMap from '@/src/components/shared/map/DynamicMap';
 
 export default async function RideDetails(props: { params: Promise<{ id: string }> }) {
   const { id } = await props.params;
