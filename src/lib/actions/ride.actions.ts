@@ -4,7 +4,7 @@ import { prisma } from '@/src/db/prisma';
 // Get rides
 
 export async function getLatestRides() {
-  const data = await prisma.route.findMany({
+  const data = await prisma.ride.findMany({
     take: 8,
     orderBy: {
       createdAt: 'desc',
@@ -14,8 +14,8 @@ export async function getLatestRides() {
   return data;
 }
 
-export async function getRideById(id: string) {
-  return await prisma.route.findFirst({
-    where: { id: id },
+export async function getRideBySlug(slug: string) {
+  return await prisma.ride.findFirst({
+    where: { slug: slug },
   });
 }

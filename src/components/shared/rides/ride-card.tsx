@@ -7,7 +7,7 @@ const RideCard = ({ ride }: { ride: Ride }) => {
   return (
     <Card className="flex flex-col w-full max-w-sm">
       <CardHeader className="p-0 items-center">
-        <Link href={`/ride/${ride.id}`} className="pt-4">
+        <Link href={`/ride/${ride.slug}`} className="pt-4">
           <Image
             src={ride.staticMapUrl}
             alt={ride.shortDescription}
@@ -18,7 +18,7 @@ const RideCard = ({ ride }: { ride: Ride }) => {
         </Link>
       </CardHeader>
       <CardContent className="grow flex flex-col justify-between p-4">
-        <Link href={`/ride/${ride.id}`}>
+        <Link href={`/ride/${ride.slug}`}>
           <h3 className="h3-bold">{ride.shortDescription}</h3>
           <p className="text-m">{ride.longDescription}</p>
         </Link>

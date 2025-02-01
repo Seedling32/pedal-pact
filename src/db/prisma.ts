@@ -16,15 +16,15 @@ const adapter = new PrismaNeon(pool);
 // Extends the PrismaClient with a custom result transformer to convert the price and rating fields to strings.
 export const prisma = new PrismaClient({ adapter }).$extends({
   result: {
-    route: {
+    ride: {
       shortDescription: {
-        compute(route) {
-          return route.shortDescription.toString();
+        compute(ride) {
+          return ride.shortDescription.toString();
         },
       },
       longDescription: {
-        compute(route) {
-          return route.longDescription.toString();
+        compute(ride) {
+          return ride.longDescription.toString();
         },
       },
     },

@@ -10,7 +10,7 @@ const RideList = ({ data, title, limit }: { data: Ride[]; title?: string; limit?
       {data.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {limitedData.map((ride: Ride) => (
-            <RideCard key={ride.name} ride={ride} />
+            <RideCard key={ride.ride_id} ride={ride} />
           ))}
         </div>
       ) : (

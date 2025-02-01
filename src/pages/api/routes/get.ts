@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     try {
-      const routes = await prisma.route.findMany();
+      const routes = await prisma.ride.findMany();
       res.status(200).json(routes);
     } catch (error) {
       console.error('Error fetching routes:', error);

@@ -12,7 +12,8 @@ const defaultCenter = { lat: 35.5951, lng: -82.5515 }; // Asheville, NC
 
 type Route = {
   id: number;
-  name: string;
+  slug: string;
+  date?: string;
   path: { lat: number; lng: number }[];
   shortDescription: string;
   longDescription: string;
@@ -26,6 +27,7 @@ const CreateRide = () => {
   const [shortDescription, setShortDescription] = useState('');
   const [longDescription, setLongDescription] = useState('');
   const [staticMapUrl, setStaticMapUrl] = useState('');
+  const [date, setDate] = useState<string>('');
 
   const handleMapClick = (event: google.maps.MapMouseEvent) => {
     if (event.latLng) {
@@ -39,6 +41,9 @@ const CreateRide = () => {
       return;
     }
 
+    const formattedDate = date ? new Date(date).toISOString() : null;
+    console.log(formattedDate);
+
     setLoading(true);
 
     try {
@@ -46,11 +51,12 @@ const CreateRide = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: `Route ${Date.now()}`,
+          slug: shortDescription || `Route ${Date.now()}`,
           path,
           shortDescription,
           longDescription,
           staticMapUrl,
+          date: formattedDate,
         }),
       });
 
@@ -60,6 +66,7 @@ const CreateRide = () => {
         setShortDescription('');
         setLongDescription('');
         setStaticMapUrl('');
+        setDate('');
       } else {
         alert('Failed to save the route.');
       }
@@ -92,6 +99,7 @@ const CreateRide = () => {
           height: '100px',
         }}
       />
+      <input type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} />
       <div style={{ position: 'relative', width: '100%', height: '600px' }}>
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
