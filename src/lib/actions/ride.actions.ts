@@ -1,5 +1,6 @@
 'use server';
 import { prisma } from '@/src/db/prisma';
+import { convertToPlainObject } from '../utils';
 
 // Get rides
 
@@ -11,7 +12,7 @@ export async function getLatestRides() {
     },
   });
 
-  return data;
+  return convertToPlainObject(data);
 }
 
 export async function getRideBySlug(slug: string) {
