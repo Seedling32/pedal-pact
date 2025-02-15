@@ -8,4 +8,5 @@ export type Ride = z.infer<typeof createRideSchema> & {
   staticMapUrl: string;
   createdAt: Date;
   updatedAt: Date;
+  distance: number;
 };

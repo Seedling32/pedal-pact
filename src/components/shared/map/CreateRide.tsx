@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { GoogleMap, Polyline } from '@react-google-maps/api';
 
 const mapContainerStyle = {
@@ -15,6 +15,7 @@ type Route = {
   slug: string;
   date?: string;
   path: { lat: number; lng: number }[];
+  distance: number;
   shortDescription: string;
   longDescription: string;
   staticMapUrl: string;
@@ -24,14 +25,37 @@ const CreateRide = () => {
   const [path, setPath] = useState<{ lat: number; lng: number }[]>([]);
   const [savedRoutes] = useState<Route[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [distance, setDistance] = useState<number>(0);
   const [shortDescription, setShortDescription] = useState('');
   const [longDescription, setLongDescription] = useState('');
   const [staticMapUrl, setStaticMapUrl] = useState('');
   const [date, setDate] = useState<string>('');
+  const googleRef = useRef<typeof google | null>(null); // Store Google API
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.google) {
+      googleRef.current = window.google;
+    }
+  }, []);
 
   const handleMapClick = (event: google.maps.MapMouseEvent) => {
     if (event.latLng) {
-      setPath([...path, { lat: event.latLng.lat(), lng: event.latLng.lng() }]);
+      const newPath = [...path, { lat: event.latLng.lat(), lng: event.latLng.lng() }];
+
+      if (newPath.length > 1 && googleRef.current) {
+        const lastPoint = newPath[newPath.length - 2];
+        const newPoint = newPath[newPath.length - 1];
+
+        // Compute distance in meters and convert to kilometers
+        const segmentDistance = googleRef.current.maps.geometry.spherical.computeDistanceBetween(
+          lastPoint,
+          newPoint,
+        );
+
+        setDistance((prevDistance) => prevDistance + segmentDistance * 0.000621371); // Convert to miles
+      }
+
+      setPath(newPath);
     }
   };
 
@@ -42,7 +66,6 @@ const CreateRide = () => {
     }
 
     const formattedDate = date ? new Date(date).toISOString() : null;
-    console.log(formattedDate);
 
     setLoading(true);
 
@@ -57,6 +80,7 @@ const CreateRide = () => {
           longDescription,
           staticMapUrl,
           date: formattedDate,
+          distance: parseFloat(distance.toFixed(2)),
         }),
       });
 
@@ -67,6 +91,7 @@ const CreateRide = () => {
         setLongDescription('');
         setStaticMapUrl('');
         setDate('');
+        setDistance(0);
       } else {
         alert('Failed to save the route.');
       }

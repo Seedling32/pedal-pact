@@ -23,7 +23,7 @@ const RideCard = ({ ride }: { ride: Ride }) => {
           <p className="text-m">{ride.longDescription}</p>
         </Link>
         <div>
-          <p>Miles</p>
+          <p>{ride.distance} Miles</p>
         </div>
       </CardContent>
     </Card>

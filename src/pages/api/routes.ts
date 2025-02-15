@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     try {
-      const { slug, path, shortDescription, longDescription, date } = req.body;
+      const { slug, path, shortDescription, longDescription, date, distance } = req.body;
       // Generate static map URL
       const pathString = path
         .map((point: { lat: number; lng: number }) => `${point.lat},${point.lng}`)
@@ -21,6 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           longDescription,
           staticMapUrl,
           date,
+          distance,
         },
       });
       res.status(200).json(newRoute);

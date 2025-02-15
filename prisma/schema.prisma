@@ -19,6 +19,7 @@ model ride {
   slug             String
   date             DateTime
   path             String // JSON string to store coordinates
+  distance         Float
   shortDescription String
   longDescription  String
   staticMapUrl     String
