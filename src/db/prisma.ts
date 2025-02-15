@@ -14,14 +14,16 @@ const pool = new Pool({ connectionString });
 const adapter = new PrismaNeon(pool);
 
 // Extends the PrismaClient with a custom result transformer to eventually convert the distance from  and rating fields to strings.
-export const prisma = new PrismaClient({ adapter }).$extends({
-  result: {
-    ride: {
-      shortDescription: {
-        compute(ride) {
-          return ride.shortDescription.toString();
-        },
-      },
-    },
-  },
-});
+export const prisma = new PrismaClient({ adapter });
+
+// .$extends({
+//   result: {
+//     ride: {
+//       shortDescription: {
+//         compute(ride) {
+//           return ride.shortDescription.toString();
+//         },
+//       },
+//     },
+//   },
+// });

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import ModeToggle from './mode-toggle';
 import { Button } from '@/src/components/ui/button';
-import { EllipsisVertical, UserRound, UserRoundPlus } from 'lucide-react';
+import { EllipsisVertical, UserRoundPlus } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
@@ -9,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/src/components/ui/sheet';
+import UserButton from './user-button';
 
 const Menu = () => {
   return (
@@ -23,11 +24,7 @@ const Menu = () => {
         <Link href="/contact" className="hover:border-b">
           Contact
         </Link>
-        <Button asChild variant="ghost" className="ml-2">
-          <Link href="/sign-in">
-            <UserRound /> Sign In
-          </Link>
-        </Button>
+        <UserButton />
         <Button asChild>
           <Link href="/register">
             <UserRoundPlus /> Register
@@ -51,11 +48,7 @@ const Menu = () => {
             <Link href="/contact" className="hover:underline">
               Contact
             </Link>
-            <Button asChild variant="ghost">
-              <Link href="/sign-in">
-                <UserRound /> Sign In
-              </Link>
-            </Button>
+            <UserButton />
             <Button asChild>
               <Link href="/register">
                 <UserRoundPlus /> Register
