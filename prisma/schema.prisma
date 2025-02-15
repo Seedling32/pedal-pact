@@ -26,3 +26,58 @@ model ride {
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 }
+
+model user {
+  userId        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  firstName     String    @default("NO_FIRST_NAME")
+  lastName      String    @default("NO_LAST_NAME")
+  email         String    @unique(map: "user_email_idx")
+  emailVerified DateTime? @db.Timestamp(6)
+  image         String?
+  password      String?
+  location_id   Int?
+  role          String    @default("USER")
+  createdAt     DateTime  @default(now()) @db.Timestamp(6)
+  updatedAt     DateTime  @updatedAt
+  account       Account[]
+  session       Session[]
+}
+
+model Account {
+  userId            String  @db.Uuid
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  updatedAt DateTime @updatedAt
+
+  user user @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @id
+  userId       String   @db.Uuid
+  expires      DateTime @db.Timestamp(6)
+  user         user     @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  updatedAt DateTime @updatedAt
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime @db.Timestamp(6)
+
+  @@id([identifier, token])
+}
